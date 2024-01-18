@@ -2,7 +2,7 @@
   "name": "project1",
   "version": "1.0.0",
   "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
+  "repository": "https://github.com/harshilpatel0/CAPM.git",
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
