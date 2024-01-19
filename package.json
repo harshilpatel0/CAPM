@@ -20,9 +20,11 @@
     "start": "cds-serve"
   },
   "cds": {
-    "requires": {
-      "auth": "xsuaa",
-      "db": "hana"
-    }
+    "hana" : {
+      "deploy-format" : "hdbtable"
+     },
+     "requires" : {
+      "db" : "hana"
+     }
   }
 }
