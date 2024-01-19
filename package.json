@@ -24,7 +24,9 @@
       "deploy-format" : "hdbtable"
      },
      "requires" : {
-      "db" : "hana"
+      "db" : {
+        "kind": "hana"
+      }
      }
   }
 }
