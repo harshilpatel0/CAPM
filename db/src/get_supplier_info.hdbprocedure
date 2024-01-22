@@ -1,0 +1,18 @@
+PROCEDURE "get_supplier_info" (out result "HC450_OFFICESUPPLIES_SUPPLIERS")
+    LANGUAGE SQLSCRIPT
+    SQL SECURITY INVOKER
+    READS SQL DATA AS
+BEGIN
+
+-- Select data from all countries excluding 'US'
+TAB_EXC_US = Select * from "HC450_OFFICESUPPLIES_SUPPLIERS" where COUNTRY != 'US';
+
+-- Select data from 'US' only
+TAB_US = Select * from "HC450_OFFICESUPPLIES_SUPPLIERS" where COUNTRY = 'US';
+
+-- Merge all Records
+TAB_ALL = Select * from :TAB_EXC_US UNION ALL Select * From :TAB_US;
+
+-- Select output from merged dataset
+result = select * from :TAB_ALL;
+END
