@@ -6,6 +6,7 @@
   "license": "UNLICENSED",
   "private": true,
   "dependencies": {
+    "@sap/approuter": "^16.0.2",
     "@sap/cds": "^7",
     "@sap/cds-hana": "^2",
     "@sap/hdbext": "^8.0.2",
