@@ -17,15 +17,20 @@
   },
   "devDependencies": {
     "@cap-js/sqlite": "^1.4.0",
-    "@sap/cds-dk": "^7"
+    "@sap/cds-dk": "^7",
+    "@sap/ux-specification": "^1.120.2"
   },
   "scripts": {
-    "start": "cds-serve"
+    "start": "cds-serve",
+    "watch-product_application": "cds watch --open product_application/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
     "hana": {
       "deploy-format": "hdbtable"
     },
     "requires": {}
-  }
+  },
+  "sapux": [
+    "app/product_application"
+  ]
 }
