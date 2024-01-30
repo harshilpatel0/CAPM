@@ -23,3 +23,15 @@ File or Folder | Purpose
 ## Learn More
 
 Learn more at https://cap.cloud.sap/docs/get-started/.
+
+requires:
+  - name: project1_html_repo_host
+    parameters:
+      content-target: true
+  build-parameters:
+    build-result: resources
+    requires:
+    - artifacts:
+      - hc450officesuppliesproductapplication.zip
+      name: hc450officesuppliesproductapplication
+      target-path: resources/

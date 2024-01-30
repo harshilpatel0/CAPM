@@ -1,36 +1,40 @@
 {
-  "name": "project1",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "https://github.com/harshilpatel0/CAPM.git",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap/approuter": "^16.0.2",
-    "@sap/cds": "^7",
-    "@sap/cds-hana": "^2",
-    "@sap/hdbext": "^8.0.2",
-    "@sap/xssec": "^3",
-    "express": "^4",
-    "passport": "^0",
-    "sap-hdbext-promisfied": "^2.202401.1"
-  },
-  "devDependencies": {
-    "@cap-js/sqlite": "^1.4.0",
-    "@sap/cds-dk": "^7",
-    "@sap/ux-specification": "^1.120.2"
-  },
-  "scripts": {
-    "start": "cds-serve",
-    "watch-product_application": "cds watch --open product_application/webapp/index.html?sap-ui-xx-viewCache=false"
-  },
-  "cds": {
-    "hana": {
-      "deploy-format": "hdbtable"
+    "name": "project1",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "https://github.com/harshilpatel0/CAPM.git",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap/approuter": "^16.0.2",
+        "@sap/cds": "^7",
+        "@sap/cds-hana": "^2",
+        "@sap/hdbext": "^8.0.2",
+        "@sap/xssec": "^3",
+        "express": "^4",
+        "passport": "^0",
+        "sap-hdbext-promisfied": "^2.202401.1"
     },
-    "requires": {}
-  },
-  "sapux": [
-    "app/product_application"
-  ]
+    "devDependencies": {
+        "@cap-js/sqlite": "^1.4.0",
+        "@sap/cds-dk": "^7",
+        "@sap/ux-specification": "^1.120.2",
+        "rimraf": "^3.0.2"
+    },
+    "scripts": {
+        "start": "cds-serve",
+        "watch-product_application": "cds watch --open product_application/webapp/index.html?sap-ui-xx-viewCache=false",
+        "undeploy": "cf undeploy project1 --delete-services --delete-service-keys --delete-service-brokers",
+        "build": "rimraf resources mta_archives && mbt build --mtar archive",
+        "deploy": "cf deploy mta_archives/archive.mtar --retries 1"
+    },
+    "cds": {
+        "hana": {
+            "deploy-format": "hdbtable"
+        },
+        "requires": {}
+    },
+    "sapux": [
+        "app/product_application"
+    ]
 }
